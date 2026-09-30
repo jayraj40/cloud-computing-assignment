@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; }
+        .row {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .label { font-weight: bold; }
+        .wordcount {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>User Profile</h1>
+
+    <div class="row"><span class="label">First Name:</span> {{ user['firstname'] }}</div>
+    <div class="row"><span class="label">Last Name:</span> {{ user['lastname'] }}</div>
+    <div class="row"><span class="label">Email:</span> {{ user['email'] }}</div>
+    <div class="row"><span class="label">Address:</span> {{ user['address'] }}</div>
+
+    {% if user['filename'] %}
+        <div class="row">
+            <span class="label">Uploaded File:</span>
+            {{ user['filename'] }}
+        </div>
+
+        <div class="wordcount">
+            <strong>File Word Count:</strong>
+            {{ user['wordcount'] }}
+        </div>
+
+        <a class="button"
+           href="/download/{{ user['username'] }}/{{ user['filename'] }}">
+           Download Uploaded File
+        </a>
+    {% endif %}
+
+    <a class="button" href="/login">Re-Login</a>
+    <a class="button" href="/">Register Another User</a>
+
+</div>
+</body>
+</html>

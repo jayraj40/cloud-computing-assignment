@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .error {
+            background: #ffe5e5;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+        .register {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Re-Login</h1>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="/login">
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login & Retrieve Profile</button>
+
+    </form>
+
+    <div class="register">
+        <a href="/">Create a new account</a>
+    </div>
+
+</div>
+</body>
+</html>

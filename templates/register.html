@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { opacity: 0.85; }
+        .login {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Create Account</h1>
+
+    <form method="POST" action="/register" enctype="multipart/form-data">
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>First Name</label>
+        <input type="text" name="firstname" required>
+
+        <label>Last Name</label>
+        <input type="text" name="lastname" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>Upload Limerick File</label>
+        <input type="file" name="file" accept=".txt" required>
+
+        <button type="submit">Register & Upload</button>
+
+    </form>
+
+    <div class="login">
+        Already registered?
+        <a href="/login">Login here</a>
+    </div>
+</div>
+</body>
+</html>
